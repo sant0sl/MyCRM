@@ -16,10 +16,9 @@ public class ServicoDAO extends GenericDAO implements iCRUD<Servico> {
 	@Override
 	public void Create(Servico s) throws SQLException {
 		openConnection();
-		String sql = "INSERT INTO servico(id_servico, nome) VALUES(?,?)";
+		String sql = "INSERT INTO servico(nome) VALUES(?)";
 		ps = c.prepareStatement(sql);
-		ps.setInt(1, s.getId());
-		ps.setString(2, s.getNome_servico());
+		ps.setString(1, s.getNome_servico());
 		ps.execute();
 		ps.close();
 		closeConnection();

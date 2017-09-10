@@ -53,7 +53,6 @@ public class ManutencaoBuscaDAO extends GenericDAO implements iCRUD<ManutencaoBu
 		return listademanutencao;
 	}
 
-
 	public List<ManutencaoBusca> FiltrarNomeCliente(String nome_cliente) throws SQLException{
 		openConnection();
 		List<ManutencaoBusca> listafiltrada = new ArrayList<>();

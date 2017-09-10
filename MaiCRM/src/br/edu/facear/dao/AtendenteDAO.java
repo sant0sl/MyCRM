@@ -16,13 +16,12 @@ public class AtendenteDAO extends GenericDAO implements iCRUD<Atendente>{
 	@Override
 	public void Create(Atendente a) throws SQLException {
 		openConnection();
-		String sql = "INSERT INTO atendente(id_atendente, nome, cpf, senha, supervisor) VALUES(?,?,?,?,?)";
+		String sql = "INSERT INTO atendente(nome, cpf, senha, supervisor) VALUES(?,?,?,?)";
 		ps = c.prepareStatement(sql);
-		ps.setInt(1, a.getId());
-		ps.setString(2, a.getNome());
+		ps.setString(1, a.getNome());
+		ps.setString(2, a.getCpf());
 		ps.setString(3, a.getCpf());
-		ps.setString(4, a.getCpf());
-		ps.setBoolean(5, a.getSupervisor());
+		ps.setBoolean(4, a.getSupervisor());
 		ps.execute();
 		ps.close();
 		closeConnection();

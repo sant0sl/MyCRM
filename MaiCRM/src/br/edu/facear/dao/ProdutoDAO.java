@@ -16,10 +16,9 @@ public class ProdutoDAO extends GenericDAO implements iCRUD<Produto> {
 	@Override
 	public void Create(Produto p) throws SQLException {
 		openConnection();
-		String sql = "INSERT INTO produto(id_produto, nome) VALUES(?,?)";
+		String sql = "INSERT INTO produto(nome) VALUES(?)";
 		ps = c.prepareStatement(sql);
-		ps.setInt(1, p.getId());
-		ps.setString(2, p.getNome_produto());
+		ps.setString(1, p.getNome_produto());
 		ps.execute();
 		ps.close();
 		closeConnection();

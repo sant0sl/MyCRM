@@ -17,15 +17,25 @@
 <hr>
 <br>
 <br>
-<center><a align="center" href=#> Cadastrar novo Cliente </a></center>
+<center><form action="/MaiCRM/gerenciarAtendentes" method="post">
+<button type="submit"> Gerenciar Atendente e Supervisores </button>
+</form></center>
 <p>
-<center><a align="center" href=#> Cadastrar novo(a) Atendente </a></center>
+<center><form action="/MaiCRM/gerenciarClientes" method="post">
+<button type="submit"> Gerenciar Clientes </button>
+</form></center>
 <p>
-<center><a align="center" href=#> Cadastrar novo Produto </a></center>
+<center><form action="/MaiCRM/gerenciarProdutos" method="post">
+<button type="submit"> Gerenciar Produtos </button>
+</form></center>
 <p>
-<center><a align="center" href=#> Cadastrar novo Serviço </a></center>
+<center><form action="/MaiCRM/gerenciarServicos" method="post">
+<button type="submit"> Gerenciar Serviços </button>
+</form></center>
 <p>
-<center><a align="center" href=#> Cadastrar nova Manutenção </a></center>
+<center><form action="/MaiCRM/cadastrarManutencao" method="get">
+<button type="submit"> Cadastrar nova Manutenção </button>
+</form></center>
 <p>
 <br>
 <hr>
@@ -79,6 +89,7 @@ Nome do Cliente: <input type="text" id="nome_cliente" name="nome_cliente" placeh
 					<td>${lista.produto}</td>
 					<td>${lista.servico}</td>
 					<td>${lista.status}</td>
+					<td><a href="/MaiCRM/alterarManutencao?id=${lista.id}">Editar</a></td>
 				</tr>
 			</c:forEach>
 		</table>

@@ -19,4 +19,13 @@ public class service_Manutencao {
 		}
 	}
 	
+	public void alterarManutencao(Manutencao m) throws SQLException{
+		if(m!=null) {
+			mDao.Update(m);
+		}
+	}
+	
+	public Manutencao ConsultaPorID(Integer id) throws SQLException{
+		return mDao.ByID(id);
+	}
 }

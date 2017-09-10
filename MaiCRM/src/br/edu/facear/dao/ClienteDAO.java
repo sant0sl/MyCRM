@@ -16,11 +16,10 @@ public class ClienteDAO extends GenericDAO implements iCRUD<Cliente>{
 	@Override
 	public void Create(Cliente cli) throws SQLException {
 		openConnection();
-		String sql = "INSERT INTO cliente(id_cliente, nome, cpf) VALUES(?,?,?)";
+		String sql = "INSERT INTO cliente(nome, cpf) VALUES(?,?)";
 		ps = c.prepareStatement(sql);
-		ps.setInt(1, cli.getId());
-		ps.setString(2, cli.getNome());
-		ps.setString(3, cli.getCpf());
+		ps.setString(1, cli.getNome());
+		ps.setString(2, cli.getCpf());
 		ps.execute();
 		ps.close();
 		closeConnection();
@@ -31,8 +30,9 @@ public class ClienteDAO extends GenericDAO implements iCRUD<Cliente>{
 		openConnection();
 		String sql = "UPDATE cliente SET nome=?, cpf=? WHERE id_cliente=?";
 		ps = c.prepareStatement(sql);
-		ps.setString(1, cli.getCpf());
+		ps.setString(1, cli.getNome());
 		ps.setString(2, cli.getCpf());
+		ps.setInt(3, cli.getId());
 		ps.executeUpdate();
 		ps.close();
 		closeConnection();
