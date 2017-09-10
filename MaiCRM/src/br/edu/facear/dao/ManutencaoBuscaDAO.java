@@ -57,7 +57,7 @@ public class ManutencaoBuscaDAO extends GenericDAO implements iCRUD<ManutencaoBu
 	public List<ManutencaoBusca> FiltrarNomeCliente(String nome_cliente) throws SQLException{
 		openConnection();
 		List<ManutencaoBusca> listafiltrada = new ArrayList<>();
-		String sql = "select manutencao.id_manutencao as id, atendente.nome as atendente, cliente.nome as cliente, manutencao.data as data, produto.nome as produto, servico.nome as servico, manutencao.status from manutencao inner join atendente on atendente_cpf=atendente.cpf inner join cliente on cliente_cpf=cliente.cpf inner join produto on produto_id=produto.id_produto inner join servico on servico_id=servico.id_servico where cliente.nome='%"+nome_cliente+"%'";
+		String sql = "select manutencao.id_manutencao as id, atendente.nome as atendente, cliente.nome as cliente, manutencao.data as data, produto.nome as produto, servico.nome as servico, manutencao.status from manutencao inner join atendente on atendente_cpf=atendente.cpf inner join cliente on cliente_cpf=cliente.cpf inner join produto on produto_id=produto.id_produto inner join servico on servico_id=servico.id_servico where cliente.nome like '%"+nome_cliente+"%'";
 		ps = c.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		if(rs != null){
@@ -86,7 +86,7 @@ public class ManutencaoBuscaDAO extends GenericDAO implements iCRUD<ManutencaoBu
 	public List<ManutencaoBusca> FiltrarData(String data) throws SQLException{
 		openConnection();
 		List<ManutencaoBusca> listafiltrada = new ArrayList<>();
-		String sql = "select manutencao.id_manutencao as id, atendente.nome as atendente, cliente.nome as cliente, manutencao.data as data, produto.nome as produto, servico.nome as servico, manutencao.status from manutencao inner join atendente on atendente_cpf=atendente.cpf inner join cliente on cliente_cpf=cliente.cpf inner join produto on produto_id=produto.id_produto inner join servico on servico_id=servico.id_servico where data='%"+data+"%'";
+		String sql = "select manutencao.id_manutencao as id, atendente.nome as atendente, cliente.nome as cliente, manutencao.data as data, produto.nome as produto, servico.nome as servico, manutencao.status from manutencao inner join atendente on atendente_cpf=atendente.cpf inner join cliente on cliente_cpf=cliente.cpf inner join produto on produto_id=produto.id_produto inner join servico on servico_id=servico.id_servico where data like '%"+data+"%'";
 		ps = c.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		if(rs != null){
@@ -115,7 +115,7 @@ public class ManutencaoBuscaDAO extends GenericDAO implements iCRUD<ManutencaoBu
 	public List<ManutencaoBusca> FiltrarStatus(Integer status) throws SQLException{
 		openConnection();
 		List<ManutencaoBusca> listafiltrada = new ArrayList<>();
-		String sql = "select manutencao.id_manutencao as id, atendente.nome as atendente, cliente.nome as cliente, manutencao.data as data, produto.nome as produto, servico.nome as servico, manutencao.status from manutencao inner join atendente on atendente_cpf=atendente.cpf inner join cliente on cliente_cpf=cliente.cpf inner join produto on produto_id=produto.id_produto inner join servico on servico_id=servico.id_servico where status='%"+status+"%'";
+		String sql = "select manutencao.id_manutencao as id, atendente.nome as atendente, cliente.nome as cliente, manutencao.data as data, produto.nome as produto, servico.nome as servico, manutencao.status from manutencao inner join atendente on atendente_cpf=atendente.cpf inner join cliente on cliente_cpf=cliente.cpf inner join produto on produto_id=produto.id_produto inner join servico on servico_id=servico.id_servico where status like '%"+status+"%'";
 		ps = c.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		if(rs != null){

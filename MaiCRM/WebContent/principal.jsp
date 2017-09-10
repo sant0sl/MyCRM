@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Início - MyCRM - Seja bem vindo!!</title>
+<title>Início - MyCRM</title>
 </head>
 <body>
 <h1 align="center"> MyCRM </h1>
@@ -30,7 +30,33 @@
 <br>
 <hr>
 <p>
-<h3 align="center"> Lista de Manutenções cadastradas </h3>
+<h3 align="center"><a href="/MaiCRM/filtrarManutencoes"> Lista de Manutenções cadastradas </a></h3>
+<p>
+<form align="center" action="/MaiCRM/filtrarNomeCliente" method="post">
+Nome do Cliente: <input type="text" id="nome_cliente" name="nome_cliente" placeholder="Ex:Leonardo S">
+<button type="submit">Filtrar</button>
+</form>
+<p>
+<form align="center" action="/MaiCRM/filtrarData" method="post">
+<fieldset>
+<legend> Data: </legend> 
+<input type="text" id="data_filtro" name="data_filtro" placeholder="Ex:09/09/2017">
+<button type="submit">Filtrar</button> 
+<p> OBS:Preencher com "/"
+</fieldset>
+</form>
+<p>
+<form align="center" action="/MaiCRM/filtrarStatus" method="post">
+<fieldset>
+<legend> Status: </legend>
+<select id="status_filtro" name="status_filtro">
+<option value="0">Agendado</option>
+<option value="1">Realizado</option>
+<option value="2">Cancelado</option>
+</select>
+<button type="submit">Filtrar</button>
+</fieldset>
+</form>
 <p>
 <c:choose>
 	<c:when test="${not empty listamanutencao}">
