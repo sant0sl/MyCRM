@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Cadastro de Manutenção - MyCRM</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
 <h1 align="center"> Serviço de Manutenção </h1>
@@ -38,17 +39,18 @@ Status:
 <option value="2">Cancelado</option>
 </select>
 <p>
-CPF do Atendente: <input type="text" id="atendente_cpf" name="atendente_cpf" placeholder="Apenas números">
+CPF do Atendente: <input type="text" id="atendente_cpf" name="atendente_cpf" maxlength="11" placeholder="Apenas números">
 <p>
-CPF do Cliente: <input type="text" id="cliente_cpf" name="cliente_cpf" placeholder="Apenas números">
+CPF do Cliente: <input type="text" id="cliente_cpf" name="cliente_cpf" maxlength="11" placeholder="Apenas números">
 <p>
-Data de Hoje: <input type="text" id="data" name="data" placeholder="Ex:00/00/0000"> 
-<br><br>OBS:Preencher incluindo "/"
+Data de Hoje: <input type="text" id="data" name="data" maxlength="10" placeholder="Ex:00/00/0000"> 
+<br>OBS:Preencher incluindo "/"
+<p>
 <p>
 </fieldset>
 <p>
-<button type="reset"> Limpar </button>
-<button type="submit"> Salvar </button>
+<button type="reset" class="btn btn-warning"> Limpar </button>
+<button type="submit" class="btn btn-success"> Salvar </button>
 </form>
 </body>
 </html>

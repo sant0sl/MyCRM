@@ -29,4 +29,8 @@ public class service_Servico {
 	public List<Servico> listarServico() throws SQLException{
 		return sDao.Read();
 	}
+	
+	public Servico ConsultaPorID(Integer id) throws SQLException{
+		return sDao.ByID(id);
+	}
 }

@@ -2,9 +2,8 @@ package br.edu.facear.model;
 
 public class Atendente {
 
-	private Integer id;
+	private Integer id, supervisor;
 	private String nome, cpf, senha;
-	private Boolean supervisor;
 	
 	public String getSenha() {
 		return senha;
@@ -18,10 +17,10 @@ public class Atendente {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Boolean getSupervisor() {
+	public Integer getSupervisor() {
 		return supervisor;
 	}
-	public void setSupervisor(Boolean supervisor) {
+	public void setSupervisor(Integer supervisor) {
 		this.supervisor = supervisor;
 	}
 	public String getNome() {
@@ -41,7 +40,7 @@ public class Atendente {
 		
 	}
 	
-	public Atendente(Integer id, String nome, String cpf, String senha, Boolean supervisor) {
+	public Atendente(Integer id, String nome, String cpf, String senha, Integer supervisor) {
 		this.id=id;
 		this.nome=nome;
 		this.cpf=cpf;

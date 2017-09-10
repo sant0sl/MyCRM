@@ -53,4 +53,21 @@ public class ProdutoDAO extends GenericDAO implements iCRUD<Produto> {
 		return listadeprodutos;
 	}
 
+	public Produto ByID(Integer id) throws SQLException{
+		openConnection();
+		Produto produto = new Produto();
+		String sql = "SELECT * FROM produto WHERE id_produto=?";
+		ps = c.prepareStatement(sql);
+		ps.setInt(1, id);
+		ResultSet rs = ps.executeQuery();
+		if(rs != null){
+			while(rs.next()){
+				produto.setId(rs.getInt("id_produto"));
+				produto.setNome_produto(rs.getString("nome"));
+			}
+		}
+		closeConnection();
+		return produto;
+	}
+	
 }

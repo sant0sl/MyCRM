@@ -29,4 +29,8 @@ public class service_Produto {
 	public List<Produto> listarProduto() throws SQLException{
 		return pDao.Read();
 	}
+	
+	public Produto ConsultaPorID(Integer id) throws SQLException{
+		return pDao.ByID(id);
+	}
 }

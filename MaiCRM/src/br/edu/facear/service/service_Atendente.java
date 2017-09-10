@@ -34,4 +34,7 @@ public class service_Atendente {
 		return aDao.Read();
 	}
 	
+	public Atendente ConsultaPorID(Integer id) throws SQLException{
+		return aDao.ByID(id);
+	}
 }

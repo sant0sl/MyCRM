@@ -6,35 +6,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Início - MyCRM</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
-<h1 align="center"> MyCRM </h1>
-<h4 align="center"> Atendente: ${atendente.nome} </h4>
-<h4 align="center"> CPF: ${atendente.cpf} </h4>
-<form action="/MaiCRM/logoutLoginCRM" method="post">
-	<center><button type="submit" class="btn btn-primary">Sair</button></center>
+<h1 align="center"> Bem vindo ao MyCRM </h1>
+<h3 align="center"> Customer Relationship Manager </h3>
+<form action="/MaiCRM/logoutLoginCRM" method="post" class="form-horizontal">
+	<center><button type="submit" class="btn btn-danger">Sair</button></center>
 </form>
 <hr>
 <br>
-<br>
-<center><form action="/MaiCRM/gerenciarAtendentes" method="post">
-<button type="submit"> Gerenciar Atendente e Supervisores </button>
+<center><form action="/MaiCRM/gerenciarAtendentes" method="get">
+<button type="submit" class="btn btn-primary"> Gerenciar Atendente e Supervisores </button>
 </form></center>
 <p>
-<center><form action="/MaiCRM/gerenciarClientes" method="post">
-<button type="submit"> Gerenciar Clientes </button>
+<center><form action="/MaiCRM/gerenciarClientes" method="get">
+<button type="submit" class="btn btn-primary"> Gerenciar Clientes </button>
 </form></center>
 <p>
-<center><form action="/MaiCRM/gerenciarProdutos" method="post">
-<button type="submit"> Gerenciar Produtos </button>
+<center><form action="/MaiCRM/gerenciarProdutos" method="get">
+<button type="submit" class="btn btn-primary"> Gerenciar Produtos </button>
 </form></center>
 <p>
-<center><form action="/MaiCRM/gerenciarServicos" method="post">
-<button type="submit"> Gerenciar Serviços </button>
+<center><form action="/MaiCRM/gerenciarServicos" method="get">
+<button type="submit" class="btn btn-primary"> Gerenciar Serviços </button>
 </form></center>
 <p>
 <center><form action="/MaiCRM/cadastrarManutencao" method="get">
-<button type="submit"> Cadastrar nova Manutenção </button>
+<button type="submit" class="btn btn-primary"> Cadastrar nova Manutenção </button>
 </form></center>
 <p>
 <br>
@@ -43,14 +42,14 @@
 <h3 align="center"><a href="/MaiCRM/filtrarManutencoes"> Lista de Manutenções cadastradas </a></h3>
 <p>
 <form align="center" action="/MaiCRM/filtrarNomeCliente" method="post">
-Nome do Cliente: <input type="text" id="nome_cliente" name="nome_cliente" placeholder="Ex:Leonardo S">
+Nome do Cliente: <input type="text" id="nome_cliente" name="nome_cliente" maxlength="50" placeholder="Ex:Leonardo S">
 <button type="submit">Filtrar</button>
 </form>
 <p>
 <form align="center" action="/MaiCRM/filtrarData" method="post">
 <fieldset>
-<legend> Data: </legend> 
-<input type="text" id="data_filtro" name="data_filtro" placeholder="Ex:09/09/2017">
+Data:
+<input type="text" id="data_filtro" name="data_filtro" maxlength="10" placeholder="Ex:09/09/2017">
 <button type="submit">Filtrar</button> 
 <p> OBS:Preencher com "/"
 </fieldset>
@@ -58,7 +57,7 @@ Nome do Cliente: <input type="text" id="nome_cliente" name="nome_cliente" placeh
 <p>
 <form align="center" action="/MaiCRM/filtrarStatus" method="post">
 <fieldset>
-<legend> Status: </legend>
+Status:
 <select id="status_filtro" name="status_filtro">
 <option value="0">Agendado</option>
 <option value="1">Realizado</option>
@@ -68,28 +67,30 @@ Nome do Cliente: <input type="text" id="nome_cliente" name="nome_cliente" placeh
 </fieldset>
 </form>
 <p>
+<hr>
+<p>
 <c:choose>
 	<c:when test="${not empty listamanutencao}">
 		<table align="center">
 			<tr>
-				<th>ID</th>
-				<th>Atendente</th>
-				<th>Cliente</th>
-				<th>Data</th>
-				<th>Produto</th>
-				<th>Serviço</th>
-				<th>Status</th>
+				<th>| ID</th>
+				<th>| Atendente</th>
+				<th>| Cliente</th>
+				<th>| Data</th>
+				<th>| Produto</th>
+				<th>| Serviço</th>
+				<th>| Status</th>
 			</tr>
 			<c:forEach var="lista" items="${listamanutencao}">
 				<tr>
-					<td>${lista.id}</td>
-					<td>${lista.atendente}</td>
-					<td>${lista.cliente}</td>
-					<td>${lista.data}</td>
-					<td>${lista.produto}</td>
-					<td>${lista.servico}</td>
-					<td>${lista.status}</td>
-					<td><a href="/MaiCRM/alterarManutencao?id=${lista.id}">Editar</a></td>
+					<td>| ${lista.id}</td>
+					<td>| ${lista.atendente}</td>
+					<td>| ${lista.cliente}</td>
+					<td>| ${lista.data}</td>
+					<td>| ${lista.produto}</td>
+					<td>| ${lista.servico}</td>
+					<td>| ${lista.status}</td>
+					<td>| <a href="/MaiCRM/alterarManutencao?id=${lista.id}">Editar</a></td>
 				</tr>
 			</c:forEach>
 		</table>

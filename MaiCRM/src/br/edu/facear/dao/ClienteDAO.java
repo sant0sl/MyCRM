@@ -54,5 +54,23 @@ public class ClienteDAO extends GenericDAO implements iCRUD<Cliente>{
 		closeConnection();
 		return listadeclientes;
 	}
+	
+	public Cliente ByID(Integer id) throws SQLException{
+		openConnection();
+		Cliente cli = new Cliente();
+		String sql = "SELECT * FROM cliente WHERE id_cliente=?";
+		ps = c.prepareStatement(sql);
+		ps.setInt(1, id);
+		ResultSet rs = ps.executeQuery();
+		if(rs != null){
+			while(rs.next()){
+				cli.setId(rs.getInt("id_cliente"));
+				cli.setNome(rs.getString("nome"));
+				cli.setCpf(rs.getString("cpf"));
+			}
+		}		
+		closeConnection();
+		return cli;
+	}
 
 }

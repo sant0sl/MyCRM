@@ -52,5 +52,22 @@ public class ServicoDAO extends GenericDAO implements iCRUD<Servico> {
 		closeConnection();
 		return listadeservico;
 	}
+	
+	public Servico ByID(Integer id) throws SQLException{
+		openConnection();
+		Servico servico = new Servico();
+		String sql = "SELECT * FROM servico WHERE id_servico=?";
+		ps = c.prepareStatement(sql);
+		ps.setInt(1, id);
+		ResultSet rs = ps.executeQuery();
+		if(rs!=null) {
+			while(rs.next()) {
+				servico.setId(rs.getInt("id_servico"));
+				servico.setNome_servico(rs.getString("nome"));
+			}
+		}
+		closeConnection();
+		return servico;
+	}
 
 }

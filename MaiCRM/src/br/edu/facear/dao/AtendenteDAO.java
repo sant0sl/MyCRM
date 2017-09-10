@@ -20,8 +20,8 @@ public class AtendenteDAO extends GenericDAO implements iCRUD<Atendente>{
 		ps = c.prepareStatement(sql);
 		ps.setString(1, a.getNome());
 		ps.setString(2, a.getCpf());
-		ps.setString(3, a.getCpf());
-		ps.setBoolean(4, a.getSupervisor());
+		ps.setString(3, a.getSenha());
+		ps.setInt(4, a.getSupervisor());
 		ps.execute();
 		ps.close();
 		closeConnection();
@@ -35,7 +35,7 @@ public class AtendenteDAO extends GenericDAO implements iCRUD<Atendente>{
 		ps.setString(1, a.getNome());
 		ps.setString(2, a.getCpf());
 		ps.setString(3, a.getSenha());
-		ps.setBoolean(4, a.getSupervisor());
+		ps.setInt(4, a.getSupervisor());
 		ps.setInt(5, a.getId());
 		ps.executeUpdate();
 		ps.close();
@@ -51,7 +51,7 @@ public class AtendenteDAO extends GenericDAO implements iCRUD<Atendente>{
 		ResultSet rs = ps.executeQuery();
 		if(rs != null){
 			while(rs.next()){
-				Atendente at = new Atendente(rs.getInt("id_atendente"), rs.getString("nome"), rs.getString("cpf"), rs.getString("senha"), rs.getBoolean("supervisor"));
+				Atendente at = new Atendente(rs.getInt("id_atendente"), rs.getString("nome"), rs.getString("cpf"), rs.getString("senha"), rs.getInt("supervisor"));
 				listafuncionarios.add(at);
 			}
 		}
@@ -69,7 +69,7 @@ public class AtendenteDAO extends GenericDAO implements iCRUD<Atendente>{
 		ResultSet rs = ps.executeQuery();
 		if(rs!=null){
 			while(rs.next()){
-				atendente = new Atendente(rs.getInt("id_atendente"), rs.getString("nome"), rs.getString("cpf"), rs.getString("senha") , rs.getBoolean("supervisor"));
+				atendente = new Atendente(rs.getInt("id_atendente"), rs.getString("nome"), rs.getString("cpf"), rs.getString("senha") , rs.getInt("supervisor"));
 			}
 		}
 		rs.close();
@@ -78,4 +78,25 @@ public class AtendenteDAO extends GenericDAO implements iCRUD<Atendente>{
 		return atendente;
 	}
 
+	public Atendente ByID(Integer id) throws SQLException{
+		openConnection();
+		Atendente atendente = new Atendente();
+		String sql = "SELECT * FROM atendente WHERE id_atendente=?";
+		ps = c.prepareStatement(sql);
+		ps.setInt(1, id);
+		ResultSet rs = ps.executeQuery();
+		if(rs!=null) {
+			while(rs.next()) {
+				atendente.setId(rs.getInt("id_atendente"));
+				atendente.setNome(rs.getString("nome"));
+				atendente.setCpf(rs.getString("cpf"));
+				atendente.setSenha(rs.getString("senha"));
+				atendente.setSupervisor(rs.getInt("supervisor"));
+			}
+			
+		}
+		closeConnection();
+		return atendente;
+	}
+	
 }

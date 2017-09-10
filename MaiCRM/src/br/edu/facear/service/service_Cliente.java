@@ -30,4 +30,8 @@ public class service_Cliente {
 		return cDao.Read();
 	}
 	
+	public Cliente ConsultaPorID(Integer id) throws SQLException{
+		return cDao.ByID(id);
+	}
+	
 }
