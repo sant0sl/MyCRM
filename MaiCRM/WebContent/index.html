@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>MaiCRM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+		<h1 align="center"> Bem vindo ao MyCRM! </h1>
+		<hr>
+		<h4 align="center"> Faça o seu login </h4>
+		</br>
+			<form align="center" action="/MaiCRM/autenticarLoginCRM" method="post" class="form-horizontal">
+			<table align="center">
+				<tr>
+					<td><div class="control-group">&nbsp;&nbsp;<label class="control-label" for="cpf">CPF:</label></div></td>
+					<td><div class="controls">&nbsp;&nbsp;<input type="text" id="cpf" name="cpf" placeholder="Apenas números"></div></td>
+					<br>
+				</tr>
+				<tr>
+					<td><div class="control-group">&nbsp;&nbsp;<label class="control-label" for="senha">Senha:</label></div></td>
+					<td><div class="controls">&nbsp;&nbsp;<input type="password" id="senha" name="senha" placeholder="Insira sua senha"></div></td>
+				</tr>
+			</table>
+	  <div class="control-group">
+		<div class="controls">
+    	<br/>
+   		  <button type="reset" class="btn btn-warning">Limpar</button>
+		  <button type="submit" class="btn btn-success">Entrar</button>
+		</div>
+	  </div>
+	</form>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
