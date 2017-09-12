@@ -29,20 +29,26 @@
 <p>
 <hr>
 <p>
-	<form align="center" action="/MaiCRM/gerenciarClientes" method="post">
-		<div class="form-group">
-			<label for="nome">Nome:</label>
-			<input type="text" class="form-control" id="nome" name="nome" maxlength="50" placeholder="Nome do cliente">
-		</div>
-		<div class="form-group">
-			<label for="cpf">CPF:</label>
-			<input type="text" class="form-control" id="cpf" name="cpf" maxlength="11" placeholder="Apenas números">
-		</div>
-		<div id="actions">
-			<button type="reset" class="btn btn-default"> Limpar </button>
-			<button type="submit" class="btn btn-success"> Cadastrar </button>
-		</div>
-	</form>
+	<div class="row">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-4">
+			<form action="/MaiCRM/gerenciarClientes" method="post">
+				<div class="form-group">
+					<label for="nome">Nome:</label>
+					<input type="text" class="form-control" id="nome" name="nome" maxlength="50" placeholder="Nome do cliente">
+				</div>
+				<div class="form-group">
+					<label for="cpf">CPF:</label>
+					<input type="text" class="form-control" id="cpf" name="cpf" maxlength="11" placeholder="Apenas números">
+				</div>
+				<div align="center" id="actions">
+					<button type="reset" class="btn btn-default"> Limpar </button>
+					<button type="submit" class="btn btn-success"> Cadastrar </button>
+				</div>
+			</form>
+	</div>
+	<div class="col-sm-4"></div>
+	</div>
 <p>
 <hr>
 <p>

@@ -51,8 +51,13 @@ public class AtendenteDAO extends GenericDAO implements iCRUD<Atendente>{
 		ResultSet rs = ps.executeQuery();
 		if(rs != null){
 			while(rs.next()){
-				Atendente at = new Atendente(rs.getInt("id_atendente"), rs.getString("nome"), rs.getString("cpf"), rs.getString("senha"), rs.getInt("supervisor"));
-				listafuncionarios.add(at);
+				Atendente atendente = new Atendente();
+				atendente.setId(rs.getInt("id_atendente"));
+				atendente.setNome(rs.getString("nome"));
+				atendente.setCpf(rs.getString("cpf"));
+				atendente.setSenha(rs.getString("senha"));
+				atendente.setSupervisor(rs.getInt("supervisor"));
+				listafuncionarios.add(atendente);
 			}
 		}
 		closeConnection();

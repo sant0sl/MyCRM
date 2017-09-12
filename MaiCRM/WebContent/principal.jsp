@@ -23,7 +23,7 @@
 <body>
 <c:import url="/inc/header.jsp"/>
 <main class="container">
-<h3 align="center"><a href="/MaiCRM/filtrarManutencoes"> Lista de Manutenções cadastradas </a></h3>
+<h3 align="center"> Filtrar Manutenções </h3>
 <br>
 	<div class="row">
 	<div class="col-sm-4">
@@ -40,9 +40,8 @@
 	<div class="col-sm-4">
 		<form action="/MaiCRM/filtrarData" method="post">
 		<div class="form-group">
-			<label for="data_filtro">Data:</label>
+			<label for="data_filtro">Data: <i>OBS:Preencher com "/"</i></label>
 			<input type="text" class="form-control" id="data_filtro" name="data_filtro" maxlength="10" placeholder="Ex:09/09/2017">
-			<p> OBS:Preencher com "/"			
 		</div>
 		<div align="center" id="actions">
 			<button type="submit" class="btn btn-primary">Filtrar</button>
@@ -67,6 +66,8 @@
 	</div>
 <p>
 <hr>
+<h3 align="center"><a href="/MaiCRM/filtrarManutencoes"> Lista de Manutenções cadastradas </a></h3>
+<br>
 <p>
 <c:choose>
 	<c:when test="${not empty listamanutencao}">

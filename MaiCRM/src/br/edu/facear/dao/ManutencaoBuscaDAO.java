@@ -27,7 +27,7 @@ public class ManutencaoBuscaDAO extends GenericDAO implements iCRUD<ManutencaoBu
 	public List<ManutencaoBusca> Read() throws SQLException {
 		openConnection();
 		List<ManutencaoBusca> listademanutencao = new ArrayList<>();
-		String sql = "select manutencao.id_manutencao as id, atendente.nome as atendente, cliente.nome as cliente, manutencao.data as data, produto.nome as produto, servico.nome as servico, manutencao.status from manutencao inner join atendente on atendente_cpf=atendente.cpf inner join cliente on cliente_cpf=cliente.cpf inner join produto on produto_id=produto.id_produto inner join servico on servico_id=servico.id_servico";
+		String sql = "select manutencao.id_manutencao as id, atendente.nome as atendente, cliente.nome as cliente, manutencao.data as data, produto.nome as produto, servico.nome as servico, manutencao.status from manutencao inner join atendente on atendente_cpf=atendente.cpf inner join cliente on cliente_cpf=cliente.cpf inner join produto on produto_id=produto.id_produto inner join servico on servico_id=servico.id_servico order by manutencao.id_manutencao";
 		ps = c.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		if(rs != null){

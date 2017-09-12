@@ -29,31 +29,37 @@
 <p>
 <hr>
 <p>
-	<form align="center" action="/MaiCRM/gerenciarAtendentes" method="post">
-	<div class="form-group">
-		<label for="nome">Nome:</label>
-		<input type="text" class="form-control" id="nome" name="nome" maxlength="50" placeholder="Nome do atendente">
+	<div class="row">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-4">
+		<form action="/MaiCRM/gerenciarAtendentes" method="post">
+			<div class="form-group">
+				<label for="nome">Nome:</label>
+				<input type="text" class="form-control" id="nome" name="nome" maxlength="50" placeholder="Nome do atendente">
+			</div>
+			<div class="form-group">
+				<label for="cpf">CPF:</label>
+				<input type="text" class="form-control" id="cpf" name="cpf" maxlength="11" placeholder="Apenas números">
+			</div>
+			<div class="form-group">
+				<label for="senha">Senha:</label>
+				<input type="text" class="form-control" id="senha" name="senha" maxlength="50" placeholder="Senha do atendente">
+			</div>
+			<div class="form-group">
+				<label for="supervisor">Supervisor:</label>
+				<select class="form-control" id="supervisor" name="supervisor">
+					<option value="0">Não</option>
+					<option value="1">Sim</option>
+				</select>	
+			</div>
+			<div align="center" id="actions">
+				<button type="reset" class="btn btn-default"> Limpar </button>
+				<button type="submit" class="btn btn-success"> Cadastrar </button>
+			</div>
+		</form>
 	</div>
-	<div class="form-group">
-		<label for="cpf">CPF:</label>
-		<input type="text" class="form-control" id="cpf" name="cpf" maxlength="11" placeholder="Apenas números">
+	<div class="col-sm-4"></div>
 	</div>
-	<div class="form-group">
-		<label for="senha">Senha:</label>
-		<input type="text" class="form-control" id="senha" name="senha" maxlength="50" placeholder="Senha do atendente">
-	</div>
-	<div class="form-group">
-		<label for="supervisor">Supervisor:</label>
-		<select class="form-control" id="supervisor" name="supervisor">
-			<option value="0">Não</option>
-			<option value="1">Sim</option>
-		</select>	
-	</div>
-	<div id="actions">
-		<button type="reset" class="btn btn-default"> Limpar </button>
-		<button type="submit" class="btn btn-success"> Cadastrar </button>
-	</div>
-</form>
 <p>
 <p>
 <hr>
@@ -69,7 +75,7 @@
 				<th>Nome</th>
 				<th>CPF</th>
 				<th>Senha</th>
-				<th>Supervisor</th>
+				<th>Supervisor(0 Não, 1 Sim)</th>
 				<th>Alterar</th>
 			</tr>
 		</thead>

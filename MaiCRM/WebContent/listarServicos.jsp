@@ -29,16 +29,22 @@
 <p>
 <hr>
 <p>
-	<form align="center" action="/MaiCRM/gerenciarServicos" method="post">
-		<div class="form-group">
-			<label for="nome">Nome:</label>
-			<input type="text" class="form-control" id="nome" name="nome" maxlength="50" placeholder="Nome do serviço">
-		</div>
-		<div id="actions">
-			<button type="reset" class="btn btn-default"> Limpar </button>
-			<button type="submit" class="btn btn-success"> Cadastrar </button>			
-		</div>
-	</form>
+	<div class="row">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-4">
+		<form action="/MaiCRM/gerenciarServicos" method="post">
+			<div class="form-group">
+				<label for="nome">Nome:</label>
+				<input type="text" class="form-control" id="nome" name="nome" maxlength="50" placeholder="Nome do serviço">
+			</div>
+			<div align="center" id="actions">
+				<button type="reset" class="btn btn-default"> Limpar </button>
+				<button type="submit" class="btn btn-success"> Cadastrar </button>			
+			</div>
+		</form>
+	</div>
+	<div class="col-sm-4"></div>
+	</div>
 <p>
 <hr>
 <p>
