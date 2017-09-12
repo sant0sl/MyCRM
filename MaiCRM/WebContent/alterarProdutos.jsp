@@ -5,10 +5,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>Alterar Produtos - MyCRM</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+	   <style>
+	        body {
+	            padding-top: 50px;
+	            padding-bottom: 20px;
+	        }
+	   </style>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css"> 
 </head>
-<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 <body>
+<c:import url="/inc/header.jsp"/>
+<main class="container">
 <h1 align="center"> Produtos </h1>
 <br>
 <h4 align="center"> Preencha o formulário a seguir para alterar o Produto </h4>
@@ -27,5 +41,7 @@ Nome: <input type="text" id="nome" name="nome" maxlength="50" value="${produtoOb
 <button type="reset" class="btn btn-warning"> Limpar </button>
 <button type="submit" class="btn btn-success"> Alterar </button>
 </form>
+</main>
+<c:import url="/inc/footer.jsp"/>
 </body>
 </html>

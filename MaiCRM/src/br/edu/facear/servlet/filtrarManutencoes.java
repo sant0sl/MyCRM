@@ -19,7 +19,7 @@ import br.edu.facear.service.service_ManutencaoBusca;
  * Servlet implementation class filtrarManutencoes
  */
 @WebServlet("/filtrarManutencoes")
-public class filtrarManutencoes extends HttpServlet {
+public class filtrarManutencoes extends redirecionamento {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -34,24 +34,7 @@ public class filtrarManutencoes extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nextpage = "/principal.jsp";
-		try {
-			service_ManutencaoBusca m = new service_ManutencaoBusca();
-			List<ManutencaoBusca> lista = new ArrayList<>();
-			lista = m.listarManutencao();
-			request.setAttribute("listamanutencao", lista);
-			
-			if(lista!=null){
-				RequestDispatcher rd = getServletContext().getRequestDispatcher(nextpage);
-				rd.forward(request, response);
-			}else {
-				System.out.println("Lista vazia");
-				RequestDispatcher rd = getServletContext().getRequestDispatcher(nextpage);
-				rd.forward(request, response);
-			}
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-		}	
+		PaginaPrincipal(request, response);
 	}
 
 }

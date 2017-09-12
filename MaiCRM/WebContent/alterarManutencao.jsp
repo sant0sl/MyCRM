@@ -5,54 +5,83 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>Alteração de Manutenção - MyCRM</title>
-<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+	   <style>
+	        body {
+	            padding-top: 50px;
+	            padding-bottom: 20px;
+	        }
+	   </style>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css"> 
 </head>
 <body>
-<h1 align="center"> Serviço de Manutenção </h1>
+<c:import url="/inc/header.jsp"/>
+<main class="container">
+<div><h1 align="center"> Serviço de Manutenção </h1></div>
 <p>
-<h3 align="center"> Preencha o formulário para alterar a manutenção </h3>
+<div><h3 align="center"> Preencha o formulário para alterar a manutenção </h3></div>
 <hr>
 <p>
-<form align="center" action="/MaiCRM/alterarManutencao" method="post">
-<fieldset>
-<legend> Formulário </legend>
-<p>
-ID da Manutenção:
-<input type="text" value="${manutencaoObjeto.id}" id="id" name="id" readonly="readonly">
-<p>
-Produto: 
-<select id="produto_id" name="produto_id">
-<c:forEach var="prod" items="${produto}">
-<option value="${prod.id}">${prod.nome_produto}</option>
-</c:forEach>
-</select>
-<p>
-Serviço:
-<select id="servico_id" name="servico_id">
-<c:forEach var="serv" items="${servico}">
-<option value="${serv.id}">${serv.nome_servico}</option>
-</c:forEach>
-</select>
-<p>
-Status: 
-<select id="status" name="status">
-<option value="0">Agendado</option>
-<option value="1">Realizado</option>
-<option value="2">Cancelado</option>
-</select>
-<p>
-CPF do Atendente: <input type="text" id="atendente_cpf" name="atendente_cpf" maxlength="11" value="${manutencaoObjeto.atendente_cpf}">
-<p>
-CPF do Cliente: <input type="text" id="cliente_cpf" name="cliente_cpf" maxlength="11" value="${manutencaoObjeto.cliente_cpf}">
-<p>
-Data de Hoje: <input type="text" id="data" name="data" maxlength="10" value="${manutencaoObjeto.data}"> 
-<br><br>OBS:Preencher incluindo "/"
-<p>
-</fieldset>
-<p>
-<button type="reset" class="btn btn-warning"> Limpar </button>
-<button type="submit" class="btn btn-success"> Alterar </button>
-</form>
+	<div class="row">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-4">
+		<form action="/MaiCRM/alterarManutencao" method="post">		
+			<div class="form-group">
+				<label>ID:</label>
+				<input type="text" class="form-control" value="${manutencaoObjeto.id}" id="id" name="id" readonly="readonly">
+			</div>
+			<div class="form-group">
+				<label>Produto:</label>
+				<select class="form-control" id="produto_id" name="produto_id">
+				<c:forEach var="prod" items="${produto}">
+				<option value="${prod.id}">${prod.nome_produto}</option>
+				</c:forEach>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Serviço:</label>
+				<select class="form-control" id="servico_id" name="servico_id" value="${manutencaoObjeto.id}">
+				<c:forEach var="serv" items="${servico}">
+				<option value="${serv.id}">${serv.nome_servico}</option>
+				</c:forEach>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Status</label>
+				<select class="form-control" id="status" name="status">
+				<option value="0">Agendado</option>
+				<option value="1">Realizado</option>
+				<option value="2">Cancelado</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="atendente_cpf">CPF da Atendente:</label>
+				<input type="text" class="form-control" id="atendente_cpf" name="atendente_cpf" maxlength="11" value="${manutencaoObjeto.atendente_cpf}">
+			</div>
+			<div class="form-group">
+				<label for="cliente_cpf">CPF do Cliente:</label>
+				<input type="text" class="form-control" id="cliente_cpf" name="cliente_cpf" maxlength="11" value="${manutencaoObjeto.cliente_cpf}">
+			</div>
+			<div class="form-group">
+				<label for="data">Data:</label>
+				<input type="text" class="form-control" id="data" name="data" maxlength="10" value="${manutencaoObjeto.data}"> 
+				OBS:Preencher incluindo "/"
+			</div>
+			<div align="center" id="actions">
+				<button type="reset" class="btn btn-default"> Limpar </button>
+				<button type="submit" class="btn btn-success"> Alterar </button>			
+			</div>
+		</form>
+	</div>
+	<div class="col-sm-4"></div>
+	</div>
+</main>
+<c:import url="/inc/footer.jsp"/>
 </body>
 </html>
