@@ -70,7 +70,7 @@
 <p>
 <c:choose>
 	<c:when test="${not empty listamanutencao}">
-		<table class="table table-striped">
+		<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>ID</th>

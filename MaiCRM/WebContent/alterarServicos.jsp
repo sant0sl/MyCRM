@@ -23,24 +23,32 @@
 <body>
 <c:import url="/inc/header.jsp"/>
 <main class="container">
-<h1 align="center"> Serviços </h1>
+<div><h1 align="center"> Serviços </h1></div>
 <br>
-<h4 align="center"> Preencha o formulário a seguir para alterar o Serviço </h4>
+<div><h4 align="center"> Preencha o formulário a seguir para alterar o Serviço </h4></div>
 <p>
 <hr>
 <p>
-<form align="center" action="/MaiCRM/alterarServicos" method="post">
-<fieldset>
-ID do Servico:
-<input type="text" value="${servicoObjeto.id}" id="id" name="id" readonly="readonly">
-<p>
-<p>
-Nome: <input type="text" id="nome" name="nome" maxlength="50" value="${servicoObjeto.nome_servico}">
-<p>
-</fieldset>
-<button type="reset" class="btn btn-warning"> Limpar </button>
-<button type="submit" class="btn btn-success"> Alterar </button>
-</form>
+	<div class="row">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-4">
+		<form action="/MaiCRM/alterarServicos" method="post">
+			<div class="form-group">
+				<label>ID:</label>
+				<input type="text" class="form-control" value="${servicoObjeto.id}" id="id" name="id" readonly="readonly">
+			</div>
+			<div class="form-group">
+				<label for="nome">Nome:</label>
+				<input type="text" class="form-control" id="nome" name="nome" maxlength="50" value="${servicoObjeto.nome_servico}">
+			</div>
+			<div align="center" id="actions">
+				<button type="reset" class="btn btn-default"> Limpar </button>
+				<button type="submit" class="btn btn-success"> Alterar </button>			
+			</div>
+		</form>
+	</div>
+	<div class="col-sm-4"></div>
+	</div>
 </main>
 <c:import url="/inc/footer.jsp"/>
 </body>
