@@ -12,9 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.edu.facear.model.Atendente;
+import br.edu.facear.model.Cliente;
 import br.edu.facear.model.Manutencao;
 import br.edu.facear.model.Produto;
 import br.edu.facear.model.Servico;
+import br.edu.facear.service.service_Atendente;
+import br.edu.facear.service.service_Cliente;
 import br.edu.facear.service.service_Manutencao;
 import br.edu.facear.service.service_Produto;
 import br.edu.facear.service.service_Servico;
@@ -43,20 +47,27 @@ public class alterarManutencao extends redirecionamento {
 		
 		service_Produto sp = new service_Produto();
 		service_Servico ss = new service_Servico();
+		service_Atendente sa = new service_Atendente();
+		service_Cliente sc = new service_Cliente();
 		List<Produto> listadeproduto = new ArrayList<>();
 		List<Servico> listadeservico = new ArrayList<>();
+		List<Atendente> listadeatendente = new ArrayList<>();
+		List<Cliente> listadecliente = new ArrayList<>();
 		
 		try {
 			Integer x = new Integer(Integer.parseInt(id));
 			service_Manutencao sm = new service_Manutencao();
 			Manutencao manutencao = sm.ConsultaPorID(x);
-			request.setAttribute("manutencaoObjeto", manutencao);
-
+			System.out.println(manutencao);
 			listadeproduto = sp.listarProduto();
 			listadeservico = ss.listarServico();
+			listadeatendente = sa.listarAtendente();
+			listadecliente = sc.listarCliente();
+			request.setAttribute("manutencaoObjeto", manutencao);
 			request.setAttribute("produto", listadeproduto);
 			request.setAttribute("servico", listadeservico);
-			
+			request.setAttribute("atendente", listadeatendente);
+			request.setAttribute("cliente", listadecliente);
 			RequestDispatcher rd = getServletContext().getRequestDispatcher(nextpage);
 			rd.forward(request, response);
 		} catch (SQLException e) {

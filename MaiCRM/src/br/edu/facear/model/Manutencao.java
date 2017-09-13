@@ -4,6 +4,7 @@ public class Manutencao {
 
 	private Integer id, produto_id, servico_id, status;
 	private String atendente_cpf, cliente_cpf, data;
+	private Produto produto;
 	
 	public Integer getId() {
 		return id;

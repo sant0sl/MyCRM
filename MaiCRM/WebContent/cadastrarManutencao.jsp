@@ -58,17 +58,24 @@
 			</select>
 		</div>
  		<div class="form-group">
- 			<label for="atendente_cpf">CPF do Atendente:</label>
-			<input type="text" class="form-control" id="atendente_cpf" name="atendente_cpf" maxlength="11" placeholder="Apenas números">
+ 			<label>CPF do Atendente:</label>
+			<select class="form-control" id="atendente_cpf" name="atendente_cpf">
+			<c:forEach var="aten" items="${atendente}">
+			<option value="${aten.cpf}">${aten.nome}</option>
+			</c:forEach>
+			</select>
  		</div>
 		<div class="form-group">
-			<label for="cliente_cpf">CPF do Cliente:</label>
-			<input type="text" class="form-control" id="cliente_cpf" name="cliente_cpf" maxlength="11" placeholder="Apenas números">
+			<label>CPF do Cliente:</label>
+			<select class="form-control" id="cliente_cpf" name="cliente_cpf">
+			<c:forEach var="cli" items="${cliente}">
+			<option value="${cli.cpf}">${cli.nome}</option>
+			</c:forEach>
+			</select>
 		</div>
  		<div class="form-group">
- 			<label for="data">Data de Hoje:</label>
-			<input type="text" class="form-control" id="data" name="data" maxlength="10" placeholder="Ex:00/00/0000"> 
-			OBS:Preencher incluindo "/"
+ 			<label>Data de Hoje:</label>
+			<input type="date" class="form-control" id="data" name="data" maxlength="10">
  		</div>
  		<div align="center" id="actions">
 			<button type="reset" class="btn btn-default"> Limpar </button>

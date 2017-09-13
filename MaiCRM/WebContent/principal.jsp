@@ -40,8 +40,8 @@
 	<div class="col-sm-4">
 		<form action="/MaiCRM/filtrarData" method="post">
 		<div class="form-group">
-			<label for="data_filtro">Data: <i>OBS:Preencher com "/"</i></label>
-			<input type="text" class="form-control" id="data_filtro" name="data_filtro" maxlength="10" placeholder="Ex:09/09/2017">
+			<label>Data:</label>
+			<input type="date" class="form-control" id="data_filtro" name="data_filtro" maxlength="10" placeholder="Ex:09/09/2017">
 		</div>
 		<div align="center" id="actions">
 			<button type="submit" class="btn btn-primary">Filtrar</button>
@@ -77,7 +77,7 @@
 				<th>ID</th>
 				<th>Atendente</th>
 				<th>Cliente</th>
-				<th>Data</th>
+				<th>Data(ano/mês/dia)</th>
 				<th>Produto</th>
 				<th>Serviço</th>
 				<th>Status</th>

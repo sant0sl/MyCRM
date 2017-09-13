@@ -38,7 +38,7 @@
 			</div>
 			<div class="form-group">
 				<label>Produto:</label>
-				<select class="form-control" id="produto_id" name="produto_id">
+				<select class="form-control" value="${manutencaoObjeto.produto_id}" id="produto_id" name="produto_id">
 				<c:forEach var="prod" items="${produto}">
 				<option value="${prod.id}">${prod.nome_produto}</option>
 				</c:forEach>
@@ -46,7 +46,7 @@
 			</div>
 			<div class="form-group">
 				<label>Serviço:</label>
-				<select class="form-control" id="servico_id" name="servico_id" value="${manutencaoObjeto.id}">
+				<select class="form-control" value="${manutencaoObjeto.servico_id}" id="servico_id" name="servico_id">
 				<c:forEach var="serv" items="${servico}">
 				<option value="${serv.id}">${serv.nome_servico}</option>
 				</c:forEach>
@@ -54,24 +54,31 @@
 			</div>
 			<div class="form-group">
 				<label>Status</label>
-				<select class="form-control" id="status" name="status">
+				<select class="form-control" value="${manutencaoObjeto.status}" id="status" name="status">
 				<option value="0">Agendado</option>
 				<option value="1">Realizado</option>
 				<option value="2">Cancelado</option>
 				</select>
 			</div>
+				<div class="form-group">
+	 			<label>CPF do Atendente:</label>
+				<select class="form-control" value="${manutencaoObjeto.atendente_cpf}" id="atendente_cpf" name="atendente_cpf">
+				<c:forEach var="aten" items="${atendente}">
+				<option value="${aten.cpf}">${aten.nome}</option>
+				</c:forEach>
+				</select>
+	 		</div>
 			<div class="form-group">
-				<label for="atendente_cpf">CPF da Atendente:</label>
-				<input type="text" class="form-control" id="atendente_cpf" name="atendente_cpf" maxlength="11" value="${manutencaoObjeto.atendente_cpf}">
-			</div>
-			<div class="form-group">
-				<label for="cliente_cpf">CPF do Cliente:</label>
-				<input type="text" class="form-control" id="cliente_cpf" name="cliente_cpf" maxlength="11" value="${manutencaoObjeto.cliente_cpf}">
+				<label>CPF do Cliente:</label>
+				<select class="form-control" value="${manutencaoObjeto.cliente_cpf}" id="cliente_cpf" name="cliente_cpf">
+				<c:forEach var="cli" items="${cliente}">
+				<option value="${cli.cpf}">${cli.nome}</option>
+				</c:forEach>
+				</select>
 			</div>
 			<div class="form-group">
 				<label for="data">Data:</label>
-				<input type="text" class="form-control" id="data" name="data" maxlength="10" value="${manutencaoObjeto.data}"> 
-				OBS:Preencher incluindo "/"
+				<input type="date" class="form-control" value="${manutencaoObjeto.data}" id="data" name="data" maxlength="10">
 			</div>
 			<div align="center" id="actions">
 				<button type="reset" class="btn btn-default"> Limpar </button>
